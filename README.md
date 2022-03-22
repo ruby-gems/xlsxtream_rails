@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     respond_to do |format|
-      format.xlsx
+      format.xlsx { render xlsx: @posts }
     end
   end
 end

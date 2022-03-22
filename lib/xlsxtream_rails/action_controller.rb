@@ -14,7 +14,6 @@ ActionController::Renderers.add :xlsx do |data, options|
   end
 
   options[:filename] = options[:filename] ? options[:filename].strip.sub(/\.xlsx$/i, "") : "data"
-  options[:filename] += ".xlsx"
 
   headers["Content-Type"] = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
   headers["Content-disposition"] = "attachment; filename=\"#{options[:filename]}.xlsx\""
