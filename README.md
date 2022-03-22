@@ -1,5 +1,5 @@
 # XlsxtreamRails
-Xlsx stream download for rails with template.
+Xlsx stream download for rails.
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -58,18 +58,6 @@ class Post < ApplicationRecord
        :body
     ]
    end
-end
-```
-
-## View
-
-If you want to render with template, you can create the template with the .xlsx.xrb extension (index.xlsx.xrb for example)
-
-```ruby
-xlsx.write_worksheet do |sheet|
-  @posts.find_each do |post|
-    sheet.add_row [post.id, post.title]
-  end
 end
 ```
 

@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["doabit"]
   spec.email = ["doinsist@gmail.com"]
   spec.homepage = "https://github.com/ruby-gems/xlsxtream_rails"
-  spec.summary = "Xlsx stream download for rails with template."
-  spec.description = "Xlsx stream download for rails with template."
+  spec.summary = "Xlsx stream download for rails."
+  spec.description = "Xlsx stream download for rails."
   spec.license = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
