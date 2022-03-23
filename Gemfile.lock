@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xlsxtream_rails (0.2.0)
+    xlsxtream_rails (0.4.0)
       rails (>= 7.0)
       xlsxtream (>= 2.4.0)
 
@@ -74,7 +74,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     builder (3.2.4)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     crass (1.0.6)
     digest (3.1.0)
     erubi (1.10.0)

@@ -9,8 +9,10 @@ ActionController::Renderers.add :xlsx do |data, options|
   # disposition / filename
   options[:disposition] = options.delete(:disposition) || "attachment"
 
-  if defined?(ActiveRecord) && data.is_a?(ActiveRecord::Relation)
-    options[:filename] ||= data.klass.name.pluralize
+  options[:filename] ||= if defined?(ActiveRecord) && data.is_a?(ActiveRecord::Relation)
+    "#{data.klass.model_name.human}_#{Time.now.to_i}"
+  else
+    Time.now.to_i
   end
 
   options[:filename] = options[:filename] ? options[:filename].strip.sub(/\.xlsx$/i, "") : "data"
