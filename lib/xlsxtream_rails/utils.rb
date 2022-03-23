@@ -10,13 +10,13 @@ module XlsxtreamRails
           instance_cols = instance.xlsx_columns
           instance_cols.each_with_index do |x, i|
             if x.is_a?(Array)
-              headers.push(x[0].to_s) if needs_headers
+              headers.push(i18n_attr(instance, x[0])) if needs_headers
               row_data.push(x[1].is_a?(Symbol) ? instance.send(x[1]) : x[1])
               if needs_column_types
                 column_types[i] = x[2]
               end
             else
-              headers.push(str_titleize(x.to_s)) if needs_headers
+              headers.push(i18n_attr(instance, x)) if needs_headers
               row_data.push(x.is_a?(Symbol) ? instance.send(x) : x)
             end
           end
@@ -27,11 +27,9 @@ module XlsxtreamRails
       end
     end
 
-    def self.str_titleize(str)
-      str.sub(/\A_+/, "")
-        .gsub(/[_.]/, " ")
-        .sub(" rescue nil", "")
-        .gsub(/(\A|\ )\w/) { |x| x.upcase }
+    def self.i18n_attr(instance, attr)
+      attr = attr.is_a?(Symbol) ? attr : attr.to_sym
+      instance.class.human_attribute_name(attr)
     end
   end
 end

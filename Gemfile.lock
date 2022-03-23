@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xlsxtream_rails (0.5.1)
+    xlsxtream_rails (0.6.0)
       rails (>= 7.0)
       xlsxtream (>= 2.4.0)
 
