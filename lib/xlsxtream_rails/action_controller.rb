@@ -12,7 +12,7 @@ ActionController::Renderers.add :xlsx do |data, options|
   options[:filename] ||= if defined?(ActiveRecord) && data.is_a?(ActiveRecord::Relation)
     "#{data.klass.model_name.human}_#{Time.now.to_i}"
   else
-    Time.now.to_i
+    Time.now.to_i.to_s
   end
 
   options[:filename] = options[:filename] ? options[:filename].strip.sub(/\.xlsx$/i, "") : "data"
