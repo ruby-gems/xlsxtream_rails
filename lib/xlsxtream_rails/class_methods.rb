@@ -1,12 +1,8 @@
 module XlsxtreamRails
   module ClassMethods
-    # TODO
     def to_xlsx
-      (column_names - except_xlsx_columns).map { |x| x.to_sym }
-    end
-
-    def except_xlsx_columns
-      []
+      except_columns = respond_to?(:xlsx_except_columns) ? xlsx_except_columns : []
+      (column_names - except_columns).map { |x| x.to_sym }
     end
   end
 end
